@@ -1,21 +1,286 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>FAQ</title>
-    <style>
-        html, body {
-            margin: 0;
-            height: 100%;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | OPCOM</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-removebg-preview.png">
 </head>
 <body>
-    <iframe src="https://drive.google.com/file/d/1_QE2drpEvVST9Bo5wCBq2OZIkCayAqni/preview"></iframe>
+
+  <div class="welcome-overlay" id="welcomeOverlay" aria-hidden="true"></div>
+
+  <div class="welcome-popup" id="welcomePopup" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="welcome-popup__content">
+      <h2 id="welcomeTitle">Boas vindas ao FAQ Redeflex</h2>
+      <p>Encontre respostas rápidas para dúvidas, erros e suporte.</p>
+      <button class="welcome-popup__close" id="closeWelcomePopup" aria-label="Fechar mensagem de boas vindas">Continuar</button>
+    </div>
+  </div>
+
+  <header class="top-banner">
+    <img src="Logo_png-removebg-preview.png" alt="Redeflex" class="logo-left">
+    <img src="Logo_OPCOM-removebg-preview.png" alt="OPCOM" class="logo-right">
+    <div class="banner-line"></div>
+  </header>
+
+  <main class="container">
+    <h1>FAQ | OPCOM</h1>
+    <p>Selecione uma das opções abaixo para acessar o conteúdo</p>
+
+    <section class="search-box" aria-label="Pesquisa por tópicos">
+      <form id="topicSearchForm" class="search-box__form">
+        <input
+          type="search"
+          id="topicSearchInput"
+          class="search-box__input"
+          list="topicSuggestions"
+          placeholder="Pesquise por tópico (ex: Reativação, Erros PIX...)"
+          aria-label="Pesquisar tópico"
+        />
+        <button type="submit" class="search-box__button">Buscar</button>
+      </form>
+      <small id="topicSearchFeedback" class="search-box__feedback" aria-live="polite"></small>
+      <datalist id="topicSuggestions">
+        <option value="Credenciamento"></option>
+        <option value="Reativação"></option>
+        <option value="Terminais"></option>
+        <option value="Comandos POS"></option>
+        <option value="Erros gerais"></option>
+        <option value="Erros PIX"></option>
+        <option value="Erros Transacionais"></option>
+        <option value="Suporte Portal/App"></option>
+        <option value="Instalação do pacote Pen drive"></option>
+      </datalist>
+    </section>
+
+    <section class="cards">
+      <a
+        href="https://drive.google.com/file/d/16tiqZ3iAN8WxIimdH_krgtWOLiWSXOAK"
+        class="card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="icon">❓</div>
+        <h3>Dúvidas Gerais</h3>
+        <span>Processos, orientações e informações gerais</span>
+
+        <div class="topics">
+          <strong>Tópicos importantes</strong>
+          <ul>
+            <li>Credenciamento</li>
+            <li>Reativação</li>
+            <li>Terminais</li>
+            <li>Comandos POS</li>
+          </ul>
+        </div>
+      </a>
+
+      <a
+        href="https://drive.google.com/file/d/1eek0hb_b5TSTw1txpCIv47rGqjIQC7k_"
+        class="card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="icon">⚠️</div>
+        <h3>Erros POS</h3>
+        <span>Códigos de erro, negativas e tratativas</span>
+
+        <div class="topics">
+          <strong>Tópicos importantes</strong>
+          <ul>
+            <li>Erros gerais</li>
+            <li>Erros PIX</li>
+            <li>Erros Transacionais</li>
+            <li>Suporte Portal/App</li>
+          </ul>
+        </div>
+      </a>
+    </section>
+
+    <section class="videos-section" aria-label="Vídeos mais visualizados">
+      <div class="videos-section__header">
+        <h2>Vídeos mais visualizados</h2>
+      </div>
+
+      <div class="videos-grid">
+        <article class="video-card">
+          <div class="video-card__player" id="installVideoCard">
+            <button
+              class="video-card__thumb"
+              id="playInstallVideo"
+              type="button"
+              aria-label="Reproduzir vídeo Instalação do pacote Pen drive"
+            >
+              <span class="video-card__play">▶</span>
+            </button>
+          </div>
+
+          <div class="video-card__body">
+            <h3>Instalação do pacote Pen drive</h3>
+            <p>Assista ao vídeo diretamente no card</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="suporte-cta">
+      <h2>Não encontrou o que precisa❓</h2>
+      <p>Nosso time está disponível para ajudar você agora mesmo.</p>
+
+      <div class="suporte-acoes">
+        <a
+          href="https://wa.me/5508006470002?text=Ol%C3%A1%20preciso%20de%20uma%20ajuda"
+          target="_blank"
+          class="btn-suporte"
+        >
+          Falar com o suporte
+        </a>
+
+        <a
+          href="https://intraflex.redeflex.com.br/Chamados/NovoChamado"
+          class="btn-chamado"
+          target="_blank"
+        >
+          Abrir chamado
+        </a>
+      </div>
+    </section>
+
+    <footer
+      class="redeflex-footer"
+      aria-label="Informações institucionais Redeflex"
+      style="background:#111c29; background:linear-gradient(130deg,#111c29 0%,#1a2635 40%,#101823 100%); color:#f3f7fb;"
+    >
+      <div class="redeflex-footer__grid">
+        <div>
+          <h3 class="redeflex-footer__brand">Redeflex</h3>
+          <ul>
+            <li><a href="https://www.redeflex.com.br" target="_blank" rel="noopener noreferrer">Site institucional</a></li>
+            <li><a href="https://www.redeflex.com.br/contato" target="_blank" rel="noopener noreferrer">Fale conosco</a></li>
+            <li><a href="https://www.redeflex.com.br" target="_blank" rel="noopener noreferrer">Seja parceiro</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Produtos e serviços</h4>
+          <ul>
+            <li>Adquirência</li>
+            <li>Recarga e serviços</li>
+            <li>Soluções para varejo</li>
+            <li>Suporte técnico</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="https://wa.me/5508006470002?text=Ol%C3%A1%20preciso%20de%20uma%20ajuda" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="https://intraflex.redeflex.com.br/Chamados/NovoChamado" target="_blank" rel="noopener noreferrer">Abrir chamado</a></li>
+            <li><a href="mailto:suporte@redeflex.com.br">suporte@redeflex.com.br</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Institucional</h4>
+          <ul>
+            <li>Política de privacidade</li>
+            <li>Termos de uso</li>
+            <li>Segurança da informação</li>
+            <li>Ouvidoria</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="redeflex-footer__note">
+        © Redeflex. Este portal foi desenvolvido para orientar o atendimento com informações rápidas e oficiais.
+      </p>
+    </footer>
+  </main>
+
+  <div class="redeflex-footer-bottom">
+    © Redeflex | Atendimento e informações institucionais
+  </div>
+
+  <script>
+    const popup = document.getElementById('welcomePopup');
+    const overlay = document.getElementById('welcomeOverlay');
+    const closeButton = document.getElementById('closeWelcomePopup');
+
+    const playInstallVideo = document.getElementById('playInstallVideo');
+    const installVideoCard = document.getElementById('installVideoCard');
+    const installVideoEmbedUrl = 'https://www.youtube.com/embed/wUWJWiLE_sc?autoplay=1';
+
+    const hidePopup = () => {
+      popup.classList.add('welcome-popup--hidden');
+      overlay.classList.add('welcome-overlay--hidden');
+      popup.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+    };
+
+    closeButton.addEventListener('click', hidePopup);
+    overlay.addEventListener('click', hidePopup);
+    window.setTimeout(hidePopup, 6000);
+
+    playInstallVideo.addEventListener('click', () => {
+      installVideoCard.innerHTML = `
+        <iframe
+          class="video-card__iframe"
+          src="${installVideoEmbedUrl}"
+          title="Instalação do pacote Pen drive"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      `;
+    });
+
+    const topicSearchForm = document.getElementById('topicSearchForm');
+    const topicSearchInput = document.getElementById('topicSearchInput');
+    const topicSearchFeedback = document.getElementById('topicSearchFeedback');
+
+    const topicLinks = {
+      'credenciamento': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
+      'reativacao': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
+      'terminais': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
+      'comandos pos': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
+      'erros gerais': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
+      'erros pix': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
+      'erros transacionais': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
+      'suporte portal/app': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
+      'instalacao do pacote pen drive': 'https://drive.google.com/drive/folders/COLE_AQUI_LINK_INSTALACAO_PEN_DRIVE'
+    };
+
+    const normalizeText = (value) => value
+      .trim()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+    topicSearchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const query = normalizeText(topicSearchInput.value);
+
+      if (!query) {
+        topicSearchFeedback.textContent = 'Digite um tópico para pesquisar.';
+        return;
+      }
+
+      const directMatch = topicLinks[query];
+      const closeMatchKey = Object.keys(topicLinks).find((topic) => topic.includes(query));
+      const destination = directMatch || (closeMatchKey ? topicLinks[closeMatchKey] : null);
+
+      if (destination) {
+        topicSearchFeedback.textContent = 'Tópico encontrado. Abrindo o documento...';
+        window.open(destination, '_blank', 'noopener');
+        return;
+      }
+
+      topicSearchFeedback.textContent = 'Não encontramos esse tópico. Tente outro termo ou use os cards abaixo.';
+    });
+  </script>
+
 </body>
 </html>
