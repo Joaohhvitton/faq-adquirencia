@@ -50,6 +50,7 @@ playShortsVideo.addEventListener('click', () => {
 const topicSearchForm = document.getElementById('topicSearchForm');
 const topicSearchInput = document.getElementById('topicSearchInput');
 const topicSearchFeedback = document.getElementById('topicSearchFeedback');
+const helpPanelTags = document.querySelectorAll('.help-panel__tag');
 
 const topicLinks = {
   'credenciamento': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
@@ -90,6 +91,13 @@ topicSearchForm.addEventListener('submit', (event) => {
   }
 
   topicSearchFeedback.textContent = 'Não encontramos esse tópico. Tente outro termo ou use os cards abaixo.';
+});
+
+helpPanelTags.forEach((tagButton) => {
+  tagButton.addEventListener('click', () => {
+    topicSearchInput.value = tagButton.dataset.topic || '';
+    topicSearchForm.requestSubmit();
+  });
 });
 
 const faqChatToggle = document.getElementById('faqChatToggle');
