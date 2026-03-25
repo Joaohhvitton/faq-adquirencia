@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | OPCOM</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-removebg-preview.png">
 </head>
 <body>
@@ -26,33 +26,42 @@
   </header>
 
   <main class="container">
-    <h1>FAQ | OPCOM</h1>
-    <p>Selecione uma das opções abaixo para acessar o conteúdo</p>
+    <section class="help-panel" aria-label="Central de ajuda">
+      <h1>FAQ | OPCOM</h1>
+      <p>Selecione uma das opções abaixo para acessar o conteúdo</p>
 
-    <section class="search-box" aria-label="Pesquisa por tópicos">
-      <form id="topicSearchForm" class="search-box__form">
-        <input
-          type="search"
-          id="topicSearchInput"
-          class="search-box__input"
-          list="topicSuggestions"
-          placeholder="Pesquise por tópico (ex: Reativação, Erros PIX...)"
-          aria-label="Pesquisar tópico"
-        />
-        <button type="submit" class="search-box__button">Buscar</button>
-      </form>
-      <small id="topicSearchFeedback" class="search-box__feedback" aria-live="polite"></small>
-      <datalist id="topicSuggestions">
-        <option value="Credenciamento"></option>
-        <option value="Reativação"></option>
-        <option value="Terminais"></option>
-        <option value="Comandos POS"></option>
-        <option value="Erros gerais"></option>
-        <option value="Erros PIX"></option>
-        <option value="Erros Transacionais"></option>
-        <option value="Suporte Portal/App"></option>
-        <option value="Instalação do pacote Pen drive"></option>
-      </datalist>
+      <section class="search-box" aria-label="Pesquisa por tópicos">
+        <form id="topicSearchForm" class="search-box__form">
+          <input
+            type="search"
+            id="topicSearchInput"
+            class="search-box__input"
+            list="topicSuggestions"
+            placeholder="Pesquise por tópico (ex: Reativação, Erros PIX...)"
+            aria-label="Pesquisar tópico"
+          />
+          <button type="submit" class="search-box__button">Buscar</button>
+        </form>
+        <small id="topicSearchFeedback" class="search-box__feedback" aria-live="polite"></small>
+        <datalist id="topicSuggestions">
+          <option value="Credenciamento"></option>
+          <option value="Reativação"></option>
+          <option value="Terminais"></option>
+          <option value="Comandos POS"></option>
+          <option value="Erros gerais"></option>
+          <option value="Erros PIX"></option>
+          <option value="Erros Transacionais"></option>
+          <option value="Suporte Portal/App"></option>
+          <option value="Instalação do pacote Pen drive"></option>
+        </datalist>
+      </section>
+
+      <div class="help-panel__tags" aria-label="Mais buscados">
+        <strong>Mais buscados:</strong>
+        <button type="button" class="help-panel__tag" data-topic="Erros gerais">Principais problemas das maquininhas</button>
+        <button type="button" class="help-panel__tag" data-topic="Credenciamento">Credenciamento</button>
+        <button type="button" class="help-panel__tag" data-topic="Erros Transacionais">Falhas na transação</button>
+      </div>
     </section>
 
     <section class="cards">
@@ -236,7 +245,7 @@
       <button type="submit">Enviar</button>
     </form>
   </aside>
-  <script src="script.js" defer></script>
+  <script src="./script.js" defer></script>
 
 </body>
 </html>
