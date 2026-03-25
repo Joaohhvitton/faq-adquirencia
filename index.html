@@ -99,9 +99,9 @@
       </a>
     </section>
 
-    <section class="videos-section" aria-label="Vídeos mais visualizados">
+    <section class="videos-section" aria-label="Manuais em vídeo">
       <div class="videos-section__header">
-        <h2>Vídeos mais visualizados</h2>
+        <h2>Manuais</h2>
       </div>
 
       <div class="videos-grid">
@@ -122,12 +122,30 @@
             <p>Assista ao vídeo diretamente no card</p>
           </div>
         </article>
+
+        <article class="video-card">
+          <div class="video-card__player" id="shortsVideoCard">
+            <button
+              class="video-card__thumb video-card__thumb--second"
+              id="playShortsVideo"
+              type="button"
+              aria-label="Reproduzir vídeo Manual adicional"
+            >
+              <span class="video-card__play">▶</span>
+            </button>
+          </div>
+
+          <div class="video-card__body">
+            <h3>Manual adicional</h3>
+            <p>Assista ao vídeo diretamente no card</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="suporte-cta">
-      <h2>Não encontrou o que precisa❓</h2>
-      <p>Nosso time está disponível para ajudar você agora mesmo.</p>
+      <h2><span class="suporte-cta__icon" aria-hidden="true">🎧</span> Ainda não encontrou sua resposta?</h2>
+      <p>Fale com o suporte agora ou abra um chamado para acompanhamento.</p>
 
       <div class="suporte-acoes">
         <a
@@ -148,11 +166,12 @@
       </div>
     </section>
 
-    <footer
-      class="redeflex-footer"
-      aria-label="Informações institucionais Redeflex"
-      style="background:#111c29; background:linear-gradient(130deg,#111c29 0%,#1a2635 40%,#101823 100%); color:#f3f7fb;"
-    >
+  </main>
+
+  <footer
+    class="redeflex-footer"
+    aria-label="Informações institucionais Redeflex"
+  >
       <div class="redeflex-footer__grid">
         <div>
           <h3 class="redeflex-footer__brand">Redeflex</h3>
@@ -178,7 +197,7 @@
           <ul>
             <li><a href="https://wa.me/5508006470002?text=Ol%C3%A1%20preciso%20de%20uma%20ajuda" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
             <li><a href="https://intraflex.redeflex.com.br/Chamados/NovoChamado" target="_blank" rel="noopener noreferrer">Abrir chamado</a></li>
-            <li><a href="mailto:suporte@redeflex.com.br">suporte@redeflex.com.br</a></li>
+            <li><a href="mailto:opcom@redeflex.com.br">opcom@redeflex.com.br</a></li>
           </ul>
         </div>
 
@@ -196,12 +215,8 @@
       <p class="redeflex-footer__note">
         © Redeflex. Este portal foi desenvolvido para orientar o atendimento com informações rápidas e oficiais.
       </p>
-    </footer>
-  </main>
+  </footer>
 
-  <div class="redeflex-footer-bottom">
-    © Redeflex | Atendimento e informações institucionais
-  </div>
 
   <script>
     const popup = document.getElementById('welcomePopup');
@@ -211,6 +226,9 @@
     const playInstallVideo = document.getElementById('playInstallVideo');
     const installVideoCard = document.getElementById('installVideoCard');
     const installVideoEmbedUrl = 'https://www.youtube.com/embed/wUWJWiLE_sc?autoplay=1';
+    const playShortsVideo = document.getElementById('playShortsVideo');
+    const shortsVideoCard = document.getElementById('shortsVideoCard');
+    const shortsVideoEmbedUrl = 'https://www.youtube.com/embed/nPQlx7qiykM?autoplay=1';
 
     const hidePopup = () => {
       popup.classList.add('welcome-popup--hidden');
@@ -235,6 +253,20 @@
         ></iframe>
       `;
     });
+
+    playShortsVideo.addEventListener('click', () => {
+      shortsVideoCard.innerHTML = `
+        <iframe
+          class="video-card__iframe"
+          src="${shortsVideoEmbedUrl}"
+          title="Manual adicional"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      `;
+    });
+
 
     const topicSearchForm = document.getElementById('topicSearchForm');
     const topicSearchInput = document.getElementById('topicSearchInput');
