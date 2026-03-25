@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | OPCOM</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-removebg-preview.png">
 </head>
 <body>
@@ -217,102 +217,26 @@
       </p>
   </footer>
 
+  <button class="faq-chat-toggle" id="faqChatToggle" aria-label="Abrir assistente FAQ">
+    💬
+  </button>
 
-  <script>
-    const popup = document.getElementById('welcomePopup');
-    const overlay = document.getElementById('welcomeOverlay');
-    const closeButton = document.getElementById('closeWelcomePopup');
+  <aside class="faq-chat-drawer" id="faqChatDrawer" aria-hidden="true" aria-label="Assistente FAQ">
+    <div class="faq-chat__header">
+      <h2>Assistente FAQ</h2>
+      <button type="button" id="faqChatClose" class="faq-chat__close" aria-label="Fechar assistente">✕</button>
+    </div>
 
-    const playInstallVideo = document.getElementById('playInstallVideo');
-    const installVideoCard = document.getElementById('installVideoCard');
-    const installVideoEmbedUrl = 'https://www.youtube.com/embed/wUWJWiLE_sc?autoplay=1';
-    const playShortsVideo = document.getElementById('playShortsVideo');
-    const shortsVideoCard = document.getElementById('shortsVideoCard');
-    const shortsVideoEmbedUrl = 'https://www.youtube.com/embed/nPQlx7qiykM?autoplay=1';
+    <div class="faq-chat__messages" id="faqChatMessages"></div>
 
-    const hidePopup = () => {
-      popup.classList.add('welcome-popup--hidden');
-      overlay.classList.add('welcome-overlay--hidden');
-      popup.setAttribute('aria-hidden', 'true');
-      overlay.setAttribute('aria-hidden', 'true');
-    };
+    <div class="faq-chat__suggestions" id="faqChatSuggestions"></div>
 
-    closeButton.addEventListener('click', hidePopup);
-    overlay.addEventListener('click', hidePopup);
-    window.setTimeout(hidePopup, 6000);
-
-    playInstallVideo.addEventListener('click', () => {
-      installVideoCard.innerHTML = `
-        <iframe
-          class="video-card__iframe"
-          src="${installVideoEmbedUrl}"
-          title="Instalação do pacote Pen drive"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      `;
-    });
-
-    playShortsVideo.addEventListener('click', () => {
-      shortsVideoCard.innerHTML = `
-        <iframe
-          class="video-card__iframe"
-          src="${shortsVideoEmbedUrl}"
-          title="Manual adicional"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      `;
-    });
-
-
-    const topicSearchForm = document.getElementById('topicSearchForm');
-    const topicSearchInput = document.getElementById('topicSearchInput');
-    const topicSearchFeedback = document.getElementById('topicSearchFeedback');
-
-    const topicLinks = {
-      'credenciamento': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
-      'reativacao': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
-      'terminais': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
-      'comandos pos': 'https://drive.google.com/file/d/1FnTXlzBSLM5AsXTFOuEa-SReBwLMABHI',
-      'erros gerais': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
-      'erros pix': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
-      'erros transacionais': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
-      'suporte portal/app': 'https://drive.google.com/file/d/1nsJyPT6Lpeejj_JiywPoolKk2KxLcclg',
-      'instalacao do pacote pen drive': 'https://drive.google.com/drive/folders/COLE_AQUI_LINK_INSTALACAO_PEN_DRIVE'
-    };
-
-    const normalizeText = (value) => value
-      .trim()
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
-
-    topicSearchForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const query = normalizeText(topicSearchInput.value);
-
-      if (!query) {
-        topicSearchFeedback.textContent = 'Digite um tópico para pesquisar.';
-        return;
-      }
-
-      const directMatch = topicLinks[query];
-      const closeMatchKey = Object.keys(topicLinks).find((topic) => topic.includes(query));
-      const destination = directMatch || (closeMatchKey ? topicLinks[closeMatchKey] : null);
-
-      if (destination) {
-        topicSearchFeedback.textContent = 'Tópico encontrado. Abrindo o documento...';
-        window.open(destination, '_blank', 'noopener');
-        return;
-      }
-
-      topicSearchFeedback.textContent = 'Não encontramos esse tópico. Tente outro termo ou use os cards abaixo.';
-    });
-  </script>
+    <form class="faq-chat__form" id="faqChatForm">
+      <input type="text" id="faqChatInput" placeholder="Digite sua dúvida..." aria-label="Digite sua dúvida" />
+      <button type="submit">Enviar</button>
+    </form>
+  </aside>
+  <script src="script.js" defer></script>
 
 </body>
 </html>
